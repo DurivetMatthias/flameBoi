@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<!-- Spritesheet Editor tool -->
+
+<html>
+
+  <head>
+  
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Forge - Spritesheet Editor</title>
+    
+    <link rel='stylesheet' type='text/css' href='Foundation/bootstrap-3.3.7-dist/css/bootstrap.min.css'>
+    
+    <style type='text/css'>
+    
+      body {
+        padding-top: 80px;
+      }
+    
+      .fileBrowser {
+    
+        visibility: hidden;
+        float : right;
+      }
+      
+      input[type='number'] {
+        -moz-appearance:textfield;
+      }
+      
+      input[type=number]::-webkit-inner-spin-button, 
+      input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance : none;
+        margin: 0; 
+      }
+
+      
+      
+      #canvas {
+
+        display : block;
+        margin-top : auto;
+        margin-left : auto;
+        margin-right : auto;
+        background-color : #fff;
+        width : 100%;
+        height : 100%;
+      }
+      
+      .fg {
+      
+        display : flex;
+        flex-flow : row wrap;
+        align-items : center;
+      }
+      
+      .spsDataRow {
+      
+        padding-top : 5px;
+        padding-bottom : 5px;
+      }
+      
+      .spsLabel {
+      
+        margin : 0px;
+      }
+      
+      
+      
+      
+      .spsKeyLabelCol {
+      
+        padding-right : 7px;
+      }
+      
+      
+      
+      #spsImageURILabel {
+      
+        font-weight : normal;
+      }
+      
+      
+      
+      .spsImportButtonCol {
+      
+        padding-left : 0px;
+        padding-right : 7px;
+      }
+      
+      #spsImageImportButton {
+      
+        width : 100%;
+      }
+      
+      .spsInfo {
+      
+        padding-left : 0px;
+        
+      }
+      
+      .canvasPanel {
+      
+        padding-left : 0px;
+        padding-right : 0px;
+      }
+      
+      .canvasSubPanel {
+      
+        margin-bottom : 5px;
+      }
+      
+      
+      
+      
+      .statusPanel {
+      
+        margin-left : 0px;
+        margin-right : 0px;
+      }
+      
+      #statusPanelBody {
+      
+        padding-top : 4px;
+        padding-bottom : 4px;
+      }
+      
+      .statusField {
+      
+        font-size : 8pt;
+        font-weight : normal;
+        padding-left : 0px;
+        padding-right : 2px;
+      }
+      
+      .statusLabel {
+      
+        margin : 0px;
+        font-weight : normal;
+      }
+      
+      
+      #configFrameWidthField:valid {
+      
+        color : black;
+      }
+      
+      #configFrameWidthField:invalid {
+      
+        color : red;
+      }
+      
+      #configFrameHeightField:valid {
+      
+        color : black;
+      }
+      
+      #configFrameHeightField:invalid {
+      
+        color : red;
+      }
+      
+      #configFPSField:valid {
+      
+        color : black;
+      }
+      
+      #configFPSField:invalid {
+      
+        color : red;
+      }
+      
+      
+      
+      #numberField:invalid {
+      
+    background-color : red;
+  }
+      
+  #numberField:valid {
+      
+    background-color : lime;
+  }
+
+  
+  
+      .statesPanel {
+      
+        padding-right : 0px;
+      }
+      
+    </style>
+        
+  </head>
+
+  <body onload='Forge.init()'>
+  
+    <nav class='navbar navbar-default navbar-fixed-top'>
+      <div class='container'>
+        <div class='navbar-header'>
+          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand' href='#'>Forge - Spritesheet Editor</a>
+        </div>
+        <div id='navbar' class='collapse navbar-collapse'>
+          <ul class='nav navbar-nav'>
+            <li id='li_navNew'><a href='#' title='New' id='navNew'><span class='glyphicon glyphicon-file' aria-hidden='true'></span></a></li>
+            <li id='li_navOpen'><a href='#' title='Open' id='navOpen' onclick='$("#loadSpsModelInput").click()'><span class='glyphicon glyphicon-folder-open' aria-hidden='true'></span></a></li>
+            <li id='li_navSave'><a href='#' title='Save' id='navSave'><span class='glyphicon glyphicon-floppy-disk' aria-hidden='true'></span></a></li>
+            <li id='li_navDelete'><a href='#' title='Delete' id='navDelete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a></li>
+            <li id='li_navExport'><a href='#' title='Export' id='navExport'><span class='glyphicon glyphicon-cloud-upload' aria-hidden='true'></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class='container'>
+    
+      <div class='row'>
+      
+        <div class='panel panel-default'>
+        
+          <div class='panel-body'>
+          
+            <div class='row fg'>
+            
+              <div class='col-md-2 text-right spsKeyLabelCol'>
+                <label class='spsLabel' id='spsKeyLabel'>Spritesheet Name</label>
+              </div>
+              
+              <div class='col-md-4 spsInfo'>
+                <input type='text' class='form-control' id='spsKeyField' placeholder='Unique spritesheet name'/>
+              </div>
+              
+              <div class='col-md-1 spsImportButtonCol'>
+              
+                <button type='button' class='btn btn-default' id='spsImageImportButton' onclick='$("#loadSpsImageInput").click()'>Import</button>
+                
+              </div>
+              
+              <div class='col-md-5 spsInfo'>
+                <label class='spsLabel' id='spsImageURILabel'>(No Spritesheet Loaded)</label>
+              </div>
+              
+            </div>
+            
+          </div>
+
+        </div>
+      
+      </div>
+      
+      <div class='row'>
+      
+        <div class='col-md-8 canvasPanel'>
+        
+          <div class='panel panel-default canvasSubPanel'>
+            <div class='panel-body' id='canvasHost'>
+              <canvas id='canvas'/>:(</canvas>
+            </div>
+          </div>
+          
+          <!-- status panel -->
+          <div class='row statusPanel'>
+          
+            <div class='panel panel-default canvasSubPanel'>
+              <div class='panel-body' id='statusPanelBody'>
+                
+                <div class='row fg'>
+              
+                  <div class='col-md-2 text-right statusField'>
+                    <label class='statusLabel' id='spsDimensionLabel'>Spritesheet:</label>
+                  </div>
+                  
+                  <div class='col-md-2 statusField'>
+                    <label class='statusLabel' id='spsDimension'>(0, 0)px</label>
+                  </div>
+                  
+                  <div class='col-md-1 text-right statusField'>
+                    <label class='statusLabel' id='frameDimensionLabel'>Frame:</label>
+                  </div>
+                  
+                  <div class='col-md-2 statusField'>
+                    <label class='statusLabel' id='frameDimension'>(0, 0)px</label>
+                  </div>
+                  
+                  <div class='col-md-1 text-right statusField'>
+                    <label class='statusLabel' id='spsFPSLabel'>Timing:</label>
+                  </div>
+                  
+                  <div class='col-md-1 statusField'>
+                    <label class='statusLabel' id='spsFPS'>0 fps</label>
+                  </div>
+                  
+                  
+                  <div class='col-md-3'>
+                  
+                    <button type='button' class='btn btn-default btn-sm' id='spsConfigButton' data-toggle='modal' data-target='#configModalDialog'>Configure</button>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          
+          </div>
+      
+        </div>
+        
+        <div class='col-md-4 statesPanel'>
+        
+          <div class='panel panel-default'>
+            <div class='panel-body'>
+              <p>Animation Sequences...</p>
+              
+              <ul class='list-group' id='sequenceList'></ul>
+            
+            </div>
+          </div>
+          
+          <div class='row'>
+          
+            <div class='col-md-10'></div>
+            <div class='col-md-1'>
+              <button type='button' class='btn btn-primary btn-md' id='newSequenceButton' data-toggle='modal' data-target='#sequenceModalDialog'>+</button>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      
+      <!-- Configure spritesheet modal -->
+      <div class='modal fade' id='configModalDialog' role='dialog'>
+        
+        <div class='modal-dialog'>
+        
+          <div class='modal-content'>
+          
+            <div class='modal-header'>
+              <button type='button' class='close' id='configDialogCloseButton' data-dismiss='modal'>&times;</button>
+              <h4 class='modal-title'>Animation Properties</h4>
+            </div>
+            
+            <div class='modal-body'>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Frame width</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <input type='number' class='form-control' id='configFrameWidthField' placeholder='width' min='2'/>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Frame Height</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <input type='number' class='form-control' id='configFrameHeightField' placeholder='height' min='2'/>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Frames per second</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <input type='number' class='form-control' id='configFPSField' placeholder='fps' min='1'/>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-primary btn-md disabled' id='configDialogOkayButton' data-dismiss='modal' disabled>Accept</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    
+    
+      <!-- New animation sequence modal -->
+      <div class='modal fade' id='sequenceModalDialog' role='dialog'>
+        
+        <div class='modal-dialog'>
+        
+          <div class='modal-content'>
+          
+            <div class='modal-header'>
+              <button type='button' class='close' id='sequenceDialogCloseButton' data-dismiss='modal'>&times;</button>
+              <h4 class='modal-title'>New Animation Sequence</h4>
+            </div>
+            
+            <div class='modal-body'>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Object identifier</label>
+                </div>
+                
+                <div class='col-md-5'>
+                  <input type='text' class='form-control' id='seqObjectIdField' placeholder='Object identifier'/>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Unique sequence name</label>
+                </div>
+                
+                <div class='col-md-5'>
+                  <input type='text' class='form-control' id='seqNameField' placeholder='Unique sequence name'/>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Start Frame</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <input type='number' class='form-control' id='seqStartFrameField' placeholder='Start frame index'/>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>End Frame</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <input type='number' class='form-control' id='seqEndFrameField' placeholder='End frame index'/>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Oscillate</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <div class='checkbox'> <label><input type='checkbox' id='seqOscillateFlag'></label> </div>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Flip Horizontally</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <div class='checkbox'> <label><input type='checkbox' id='seqFlipHorizFlag'></label> </div>
+                </div>
+                
+              </div>
+              
+              <div class='row fg spsDataRow'>
+              
+                <div class='col-md-6 text-right'>
+                  <label class='spsLabel'>Flip Vertically</label>
+                </div>
+                
+                <div class='col-md-2'>
+                  <div class='checkbox'> <label><input type='checkbox' id='seqFlipVerticalFlag'></label> </div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-primary btn-md' id='sequenceDialogOkayButton' data-dismiss='modal'>Create</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    
+    <div>
+      <input type='file' class='fileBrowser' id='loadSpsModelInput' />
+      <input type='file' class='fileBrowser' id='loadSpsImageInput' />
+    </div>
+    
+
+    <script src='Foundation/jquery-3.2.0/jquery.min.js'></script>    
+    <script src='Foundation/bootstrap-3.3.7-dist/js/bootstrap.min.js'></script>
+    <script src='Foundation/poly-decomp.js-4558762/build/decomp.min.js'></script>
+    <script src='Foundation/matter_js/matter.min.js'></script>
+    <script src='Foundation/gl-matrix/gl-matrix-min.js'></script>
+    
+    <script>
+          
+      // Minimise global namespace pollution - all relevant types reside in Forge namespace
+      var Forge = {}
+      
+      Forge.canvas = $('#canvas')[0];
+      Forge.context = Forge.canvas.getContext('2d');
+      
+      Forge.init = function() {
+        
+        // Instantiate editor stage object (singleton)
+        Forge.stageGraph = Forge.Stages.Editor( {} );
+        
+        Forge.stageGraph.init();
+      }
+      
+    </script>
+    
+    
+    <script src='spritesheet_editor_stages/src/editor_stage.js'></script>
+    <script src='spritesheet_editor_foundation/src/sprite.js'></script>
+    
+  </body>
+  
+</html>

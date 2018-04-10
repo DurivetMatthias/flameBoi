@@ -1,0 +1,43 @@
+
+/* OverDrive page layout and style properties */
+
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+  
+  background-color : #000;
+}
+
+.banner {
+
+  display : block;
+  margin-top : 5px;
+  margin-bottom : 10px;
+  margin-left : auto;
+  margin-right : auto;
+  text-align : center;
+}
+
+#GameDiv {
+
+  position : relative;
+  
+  width : 1028px;
+  height : 772px;
+  margin-left : auto;
+  margin-right : auto;
+  border-radius: 5px;
+  background-color: black;
+  border: 2px solid #ccc;
+}
+
+#canvas {
+  
+  position: absolute;
+  left : 0px;
+  top : 0px;
+  z-index : 0;
+}
+
+

@@ -236,10 +236,6 @@ function update ()
         }
         else {
             player.anims.play('turnS', true);
-            player.anims.play('turnH', true);
-        }
-        else {
-            player.anims.play('turnH', true);
         }
     }
 
@@ -351,7 +347,6 @@ function killRefill(object) {
     object.active = false;
 }
 
-function endGame() {
 function destroyAll() {
     waterDrops = [];
     projectiles = null;

@@ -2,142 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49a8bc44-8ec6-4a23-8a52-b736485ff2af" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/flameBoi.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Animations/braid2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Animations/crazy_player.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Animations/mummy_anim_main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Animations/platform_oscillator_anim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Animations/player_anim_final.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Animations/player_main2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/Bat-sprite-Sheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/Bluhand-sprite-Sheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/Clouds.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/Clouds2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/CrazyAnimation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/FrostAnim01b.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/FullMoon.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/Mummy-sprite-Sheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/SpookyCreatures01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/SpookyCreatures01b.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/banner.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/cobblestone.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/enemy01_4x4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/grass_tile.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/pickup_energy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/pickup_extralife.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/pickup_points.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/platform1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Images/slime-sprite-Sheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/layout.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/background.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/camera.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/clock.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/game_bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/graphics_animsequence.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/graphics_sprite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/graphics_spritesheet.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/keyboard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/model_contact.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/model_entitybase.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/model_platform.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/model_player.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/model_state.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/npc_creature.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/pickup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/stages/main_game.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/stages/stage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Engine/src/system.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/Licence.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/css/bootstrap.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/bootstrap-3.3.7-dist/js/npm.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/gl-matrix/Licence.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/gl-matrix/gl-matrix-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/gl-matrix/gl-matrix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/jquery-3.2.0/Licence.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/jquery-3.2.0/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/jquery-3.2.0/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/jquery-3.2.0/jquery.min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/matter_js/matter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/matter_js/matter.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/matter_js/matter_js licence.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/build/decomp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/build/decomp.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/dat.gui.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/css/external-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/css/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/img/spinner.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/js/api-filter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/js/api-list.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/js/api-search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/js/apidocs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/js/yui-prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/vendor/prettify/CHANGES.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/vendor/prettify/COPYING" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/vendor/prettify/README.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/vendor/prettify/prettify-min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/assets/vendor/prettify/prettify-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/classes/Line.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/classes/Point.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/classes/Polygon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/classes/Scalar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/classes/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/data.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/files/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/files/src_Line.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/files/src_Point.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/files/src_Polygon.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/files/src_Scalar.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/docs/modules/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/src/Line.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/src/Point.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/src/Polygon.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/src/Scalar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/test/Polygon.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp.js-4558762/yuidoc.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp/Licence.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp/decomp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Foundation/poly-decomp/decomp.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Levels/level01.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Licence.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Models/braid2.forge.sps.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Models/mummy_anim.forge.sps.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Models/player_anim_final.forge.sps.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Models/player_main2.forge.sps.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spritesheet_editor.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spritesheet_editor_foundation/src/SpriteSheet.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spritesheet_editor_foundation/src/sprite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spritesheet_editor_stages/src/editor_stage.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flameBoy Phaser.iws" />
@@ -162,8 +26,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+            <state relative-caret-position="316">
+              <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -363,12 +227,20 @@
       <workItem from="1523430913716" duration="2292000" />
       <workItem from="1523460746238" duration="1248000" />
       <workItem from="1523521287047" duration="1545000" />
-      <workItem from="1523523056107" duration="184000" />
+      <workItem from="1523523056107" duration="358000" />
     </task>
+    <task id="LOCAL-00001" summary="phaser rework">
+      <created>1523523328100</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1523523328100</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28823000" />
+    <option name="totallyTimeSpent" value="28997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="2" width="1934" height="1036" extended-state="0" />
@@ -403,6 +275,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="phaser rework" />
+    <option name="LAST_COMMIT_MESSAGE" value="phaser rework" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -579,8 +455,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+        <state relative-caret-position="316">
+          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
           <folding />
         </state>
       </provider>

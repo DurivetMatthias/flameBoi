@@ -1,11 +1,11 @@
 let background;
-let platforms;
 let player;
 let cursors;
 let camera;
 let waterDrops = [];
 let projectiles = [];
 let sinks = [];
+let platforms = [];
 let outerThis;
 let lastFullPercentage;
 let warmthText;
@@ -22,8 +22,17 @@ const width = 1500;
 const height = 600;
 const theoreticalFramesPerSecond = 60;
 
-const widthMultiplier = 2;
+const widthMultiplier = 5;
 
+const levelJSON =
+    [   {width: width*widthMultiplier, height: height/4, x:0, y: height*3/4},
+        {width: 100, height: 40, x:400, y: height/2},
+        {width: 100, height: 40, x:550, y: height/3},
+        {width: 100, height: 40, x:700, y: height/2},
+        {width: 200, height: 40, x:width*widthMultiplier*2/10, y: height*2/3},
+        {width: 200, height: 40, x:width*widthMultiplier*4/10, y: height*2/3},
+        {width: 200, height: 40, x:width*widthMultiplier*6/10, y: height/3},
+        {width: 200, height: 40, x:width*widthMultiplier*8/10, y: height*2/3}];
 const config = {
     type: Phaser.AUTO,
     width: width*widthMultiplier,
@@ -42,7 +51,7 @@ const config = {
     }
 };
 
-var warmthLvl = 'H';
+let warmthLvl = 'H';
 
 let game = new Phaser.Game(config);
 
@@ -83,9 +92,7 @@ function create ()
     background = this.add.tileSprite(700, 250, width*4, height, "background");
     cursors = this.input.keyboard.createCursorKeys();
     player = this.physics.add.sprite(width/8, height/2, 'FHappy');
-    platforms = this.physics.add.staticGroup();
     candle = this.physics.add.sprite(width*widthMultiplier * 9 / 10, 0, 'candle_off');
-    platforms.create(0,height*3/4, 'wall').setOrigin(0,0).setDisplaySize(width*widthMultiplier, height/4).refreshBody();
     player.setBounce(bounce);
     player.setCollideWorldBounds(true);
     player.warmth = 100;
@@ -95,6 +102,16 @@ function create ()
     warmthText = this.add.text(width/2, height/10, 'Warmth: 100', { fill: '#ffffff', font: '18pt Arial' }).setOrigin(0.5,0.5).setScrollFactor(0);
     updateWarmthBar();
     player.body.setGravityY(gravity);
+
+    levelJSON.forEach(function (positionObject) {
+        let plat = outerThis.physics.add.sprite(positionObject.x,positionObject.y, 'wall').setOrigin(0,0).setGravityY(-gravity);
+        plat.setDisplaySize(positionObject.width,positionObject.height);
+        plat.width = positionObject.width;
+        plat.height = positionObject.height;
+        plat.body.immovable = true;
+        platforms.push(plat);
+        console.log(plat);
+    });
 
     for(let i=0;i<1;i++){
         let drop = this.physics.add.sprite(width/2+ (i*500),height/2,'waterDrop');
@@ -174,7 +191,7 @@ function create ()
     this.physics.add.collider(candle, platforms);
     this.physics.add.collider(sinks, platforms);
     this.physics.add.overlap(player, projectiles, projectileContact, null, this);
-    this.physics.add.overlap(platforms, projectiles, killProjectile, null, this);
+    this.physics.add.overlap(projectiles, platforms, killProjectile, null, this);
     this.physics.add.overlap(player, waterDrops, creatureContact, null, this);
     this.physics.add.overlap(player, candle, lightCandle, null, this);
     this.physics.add.overlap(player, sinks, sinkCollision, null, this);

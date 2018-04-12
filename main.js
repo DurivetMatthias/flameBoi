@@ -59,19 +59,20 @@ function preload ()
     this.load.image('bar_back', 'assets/black.jpg');
     this.load.image('sink', 'assets/sink.png');
 
-    this.load.spritesheet('FHappy', 'assets/FlameboiHappy.png', { frameWidth: 150, frameHeight: 215 });
-    this.load.spritesheet('FNeutral', 'assets/FlameboiNeutral.png', { frameWidth: 150, frameHeight: 215 });
-    this.load.spritesheet('FSad', 'assets/FlameboiSad.png', { frameWidth: 150, frameHeight: 215 });
+    this.load.spritesheet('FHappy', 'assets/FlameboiHappy.png', { frameWidth: 80, frameHeight: 115 });
+    this.load.spritesheet('FNeutral', 'assets/FlameboiNeutral.png', { frameWidth: 80, frameHeight: 115 });
+    this.load.spritesheet('FSad', 'assets/FlameboiSad.png', { frameWidth: 80, frameHeight: 115 });
 
-    this.load.spritesheet('LFHappy', 'assets/LFlameboiHappy.png', { frameWidth: 180, frameHeight: 215 });
-    this.load.spritesheet('LFNeutral', 'assets/LFlameboiNeutral.png', { frameWidth: 180, frameHeight: 215 });
-    this.load.spritesheet('LFSad', 'assets/LFlameboiSad.png', { frameWidth: 180, frameHeight: 215 });
+    this.load.spritesheet('LFHappy', 'assets/LFlameboiHappy.png', { frameWidth: 96, frameHeight: 115 });
+    this.load.spritesheet('LFNeutral', 'assets/LFlameboiNeutral.png', { frameWidth: 96, frameHeight: 115 });
+    this.load.spritesheet('LFSad', 'assets/LFlameboiSad.png', { frameWidth: 96, frameHeight: 115 });
 
-    this.load.spritesheet('RFHappy', 'assets/RFlameboiHappy.png', { frameWidth: 190, frameHeight: 215 });
-    this.load.spritesheet('RFNeutral', 'assets/RFlameboiNeutral.png', { frameWidth: 190, frameHeight: 215 });
-    this.load.spritesheet('RFSad', 'assets/RFlameboiSad.png', { frameWidth: 190, frameHeight: 215 });
+    this.load.spritesheet('RFHappy', 'assets/RFlameboiHappy.png', { frameWidth: 102, frameHeight: 115 });
+    this.load.spritesheet('RFNeutral', 'assets/RFlameboiNeutral.png', { frameWidth: 102, frameHeight: 115 });
+    this.load.spritesheet('RFSad', 'assets/RFlameboiSad.png', { frameWidth: 96, frameHeight: 115 });
 
-    this.load.spritesheet('waterDrop', 'assets/WaterboiEnemy.png', { frameWidth: 150, frameHeight: 150 });
+    this.load.spritesheet('waterDrop', 'assets/WaterboiEnemy.png', { frameWidth: 50, frameHeight: 50 });
+    this.load.spritesheet('furnace', 'assets/Furnace.png', { frameWidth: 150, frameHeight: 50 });
 }
 
 function create ()
@@ -79,7 +80,7 @@ function create ()
     lastFullPercentage = 100;
     outerThis = this;
 
-    background = this.add.image(0,0,'background').setOrigin(0);
+    background = this.add.tileSprite(700, 250, width*4, height, "background");
     cursors = this.input.keyboard.createCursorKeys();
     player = this.physics.add.sprite(width/8, height/2, 'FHappy');
     platforms = this.physics.add.staticGroup();
@@ -231,6 +232,10 @@ function update ()
             player.anims.play('turnH', true);
         }
         else if (warmthLvl == 'N') {
+            player.anims.play('turnN', true);
+        }
+        else {
+            player.anims.play('turnS', true);
             player.anims.play('turnH', true);
         }
         else {
@@ -248,6 +253,16 @@ function update ()
     player.warmth -= warmthDecreasePerSecond / theoreticalFramesPerSecond;
     if(Math.ceil(player.warmth) !== lastFullPercentage){
         updateWarmthBar();
+    }
+
+    if (player.warmth > 66) {
+        warmthLvl = 'H';
+    }
+    else if (player.warmth > 33){
+        warmthLvl = 'N';
+    }
+    else {
+        warmthLvl = 'S';
     }
     lastFullPercentage = Math.ceil(player.warmth);
 
@@ -317,6 +332,11 @@ function creatureContact(player,creature) {
     player.setVelocityX(-2000);
 }
 
+function refillContact(player, creature) {
+    player.warmth += 25;
+    killRefill(creature);
+}
+
 function killProjectile(projectile,platform) {
     projectile.disableBody(true,true);
 }
@@ -326,6 +346,12 @@ function kill(object) {
     object.active = false;
 }
 
+function killRefill(object) {
+    object.disableBody(true,true);
+    object.active = false;
+}
+
+function endGame() {
 function destroyAll() {
     waterDrops = [];
     projectiles = null;

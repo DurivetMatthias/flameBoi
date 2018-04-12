@@ -1,1 +1,0 @@
-{"uniqueIdentifier":"mummy","imageFilename":"Mummy-sprite-Sheet.png","frameWidth":"250","frameHeight":"250","fps":"12","rows":3,"cols":4,"sequences":[{"guiListID":"seq0","targetObject":"mummy","sequenceName":"doing_stuff","startFrame":"0","endFrame":"9","oscillate":true,"flipHorizontal":false,"flipVertical":false}]}

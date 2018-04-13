@@ -25,21 +25,22 @@ const width = 1500;
 const height = 600;
 const theoreticalFramesPerSecond = 60;
 const groundY = height*8/10;
+const jump = 1000;
 
 const widthMultiplier = 3;
 
 const levelJSON =
-    [   {width: width*widthMultiplier, height: height/10, x:0, y: height*9/10},
-        {width: 200, height: 20, x:900, y: 400},
-        {width: 200, height: 20, x:1100, y: 250},
-        {width: 200, height: 20, x:1300, y: 400},
-        {width: 300, height: 20, x:2200, y: 400},
-        {width: 20, height: 200, x:2200, y: 400},
-        {width: 20, height: 400, x:2500, y: 200},
-        {width: 100, height: 20, x:2400, y: 200},
-        {width: 200, height: 20, x:2800, y: 400},
-        {width: 200, height: 20, x:3200, y: 400},
-        {width: 200, height: 20, x:3600, y: 400}];
+    [   {width: width*widthMultiplier, height: height/10, x:0, y: height*9/10, sprite: 'wall'},
+        {width: 200, height: 40, x:900, y: 400, sprite: 'fork'},
+        {width: 200, height: 40, x:1100, y: 200, sprite: 'knife'},
+        {width: 200, height: 40, x:1300, y: 400 , sprite: 'spoon'},
+        {width: 300, height: 40, x:2200, y: 400, sprite: 'fork'},
+        {width: 40, height: 200, x:2200, y: 400, sprite: 'wall'},
+        {width: 40, height: 400, x:2500, y: 200, sprite: 'wall'},
+        {width: 100, height: 40, x:2400, y: 200, sprite: 'spoon'},
+        {width: 200, height: 40, x:2800, y: 400, sprite: 'knife'},
+        {width: 200, height: 40, x:3200, y: 400, sprite: 'fork'},
+        {width: 200, height: 40, x:3600, y: 400, sprite: 'spoon'}];
 const sinksJSON =
     [   {x:2075, y: groundY}];
 const waterdropsJSON =
@@ -52,7 +53,7 @@ const waterdropsJSON =
 const fansJSON =
     [   {x:2400, y: 200}];
 const refilJSON =
-    [   {x:1200, y: 200}];
+    [   {x:1200, y: 150}];
 const config = {
     type: Phaser.AUTO,
     width: width*widthMultiplier,
@@ -83,6 +84,9 @@ function preload ()
     this.load.image('bar', 'assets/warmth_bar.jpg');
     this.load.image('bar_back', 'assets/black.jpg');
     this.load.image('waterProjectile', 'assets/waterProjectile.png');
+    this.load.image('fork', 'assets/Fork.png');
+    this.load.image('spoon', 'assets/Spoon.png');
+    this.load.image('knife', 'assets/Knife.png');
 
     this.load.spritesheet('sink', 'assets/sink.png', { frameWidth: 250, frameHeight: 60 });
     this.load.spritesheet('fan', 'assets/fan.png', { frameWidth: 600, frameHeight: 600});
@@ -106,6 +110,7 @@ function preload ()
     this.load.spritesheet('RFSad', 'assets/RFlameboiSad.png', { frameWidth: 96, frameHeight: 115 });
 
     this.load.spritesheet('waterDrop', 'assets/WaterboiEnemy.png', { frameWidth: 50, frameHeight: 50 });
+    this.load.spritesheet('loss', 'assets/Loss.png', { frameWidth: 115, frameHeight: 114 });
 }
 
 function create ()
@@ -120,6 +125,7 @@ function create ()
     player.setBounce(bounce);
     player.setCollideWorldBounds(true);
     player.warmth = 100;
+    player.isDead = false;
     warmthBarBackground = this.add.image(width/2, height/10, 'bar_back').setDisplaySize(404,44).setScrollFactor(0);
     warmthBarBackground.scaleX = 0.255;
     warmthBar = this.add.image(width/2, height/10, 'bar').setDisplaySize(400,40).setScrollFactor(0);
@@ -239,9 +245,16 @@ function create ()
         repeat: -1
     });
 
+    this.anims.create({
+        key: 'death_anim',
+        frames: this.anims.generateFrameNumbers('loss'),
+        frameRate: 10,
+        repeat: false
+    });
+
 
     levelJSON.forEach(function (positionObject) {
-        let plat = outerThis.physics.add.sprite(positionObject.x,positionObject.y, 'wall').setOrigin(0,0).setGravityY(-gravity);
+        let plat = outerThis.physics.add.sprite(positionObject.x,positionObject.y, positionObject.sprite).setOrigin(0,0).setGravityY(-gravity);
         plat.setDisplaySize(positionObject.width,positionObject.height);
         plat.width = positionObject.width;
         plat.height = positionObject.height;
@@ -299,13 +312,21 @@ function create ()
 function update ()
 {
     const playerSpeed = 300;
-    const playerJumpHeight = 1000;
+    const playerJumpHeight = jump;
     const playerSpeedIncrement = 150;
     const playerFriction = 1.1;
 
+    if(player.warmth<=0&&!player.isDead) {
+        player.warmth = 0;
+        updateWarmthBar();
+        player.play('death_anim');
+        player.isDead = true;
+        player.setVelocityX(0);
+    }
+
     if(gameEnded) return null;
 
-    if(player.warmth<=0) loseGame();
+    if(player.isDead) return null;
 
     if (cursors.left.isDown)
     {
@@ -378,7 +399,7 @@ function update ()
         const secondsToJump = 1.5;
         const secondsToFire = 2;
         const secondsToPatrol = 2;
-        const jumpHeight = 1000;
+        const jumpHeight = jump;
         const distanceToPlayer = player.x - child.x;
         const facingLeft = distanceToPlayer < 0;
 
@@ -430,7 +451,7 @@ function initiateWaterProjectile(projectile, left) {
 
 function updateWarmthBar() {
     let warmth = Math.ceil(player.warmth);
-    warmthText.setText('Warmth: '+ warmth);
+    warmthText.setText('Heat: '+ warmth);
     warmthBar.scaleX = warmth/400;
 }
 
@@ -440,7 +461,8 @@ function projectileContact(player,projectile) {
 }
 
 function waterDropCollision(player,waterDrop) {
-    loseWarmth(50);
+    if(waterDrop.body.touching.up) player.setVelocityY(-jump);
+    else loseWarmth(50);
     kill(waterDrop);
     waterDrop.active = false;
 }
@@ -496,12 +518,6 @@ function destroyAll() {
     waterDrops = [];
     projectiles = [];
     sinks = [];
-}
-
-function loseGame() {
-    outerThis.add.image(0,0,'gameOver').setOrigin(0).setDisplaySize(width, height).setScrollFactor(0);
-    destroyAll();
-    gameEnded = true;
 }
 
 function winGame(){
